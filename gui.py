@@ -804,7 +804,6 @@ class GuiThread(threading.Thread):
             self.port = self.kwargs['loaded_modules']['webchat']['port']
 
     def run(self):
-        chromectrl.Initialize()
         url = ':'.join([self.url, str(self.port)])
         app = wx.App(False)  # Create a new app, don't redirect stdout/stderr to a window.
         self.gui = ChatGui(None, "LalkaChat", url, **self.kwargs)  # A Frame is a top-level window.
