@@ -4,6 +4,7 @@ from collections import OrderedDict
 import webbrowser
 import wx
 import wx.grid
+import wx.html2
 import os
 import logging
 from ConfigParser import ConfigParser
@@ -719,7 +720,7 @@ class ChatGui(wx.Frame):
         # Creating main gui window
         vbox = wx.BoxSizer(wx.VERTICAL)
         self.toolbar = MainMenuToolBar(self, main_class=self)
-        self.browser_window = chromectrl.ChromeCtrl(self, useTimer=False, url=str(url), hasNavBar=False)
+        self.browser_window = wx.html2.WebView.New(parent=self, url=url, name='LalkaWebViewGui')
 
         vbox.Add(self.toolbar, 0, wx.EXPAND)
         vbox.Add(self.browser_window, 1, wx.EXPAND)
